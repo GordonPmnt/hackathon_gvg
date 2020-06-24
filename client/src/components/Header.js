@@ -28,7 +28,7 @@ const styles = {
 
     },
     navbar: {
-        height: '3vh',
+        height: '40px',
         backgroundColor: 'rgb(65, 149, 216)',
     }
   }
