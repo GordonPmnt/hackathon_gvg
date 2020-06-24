@@ -1,3 +1,3 @@
 const colors = {
-    background: 'rgb(197, 42, 34)',
+    background: 'rgb(65, 149, 216)',
 }
