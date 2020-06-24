@@ -1,10 +1,18 @@
 import React from 'react';
-import Agenda from './components/Agenda.jsx'
+import Agenda from './components/Agenda.jsx';
+import { Switch, Route } from "react-router-dom";
+import Home from "./components/Home";
+import Header from "./components/Header";
+import Agenda from "./components/Agenda"
 
 const App = () => {
   return (
     <div>
-      <Agenda />
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/Agenda" component={Agenda} />
+      </Switch>
     </div>
   );
 }
