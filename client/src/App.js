@@ -1,10 +1,10 @@
 import React from 'react';
-import MediaCard from './components/card'
+import Card from './components/Card.jsx'
 
 const App = () => {
   return (
     <div>
-      <MediaCard/>
+      <Card/>
       {/* 
       <MediaCard/>
       <MediaCard/>
