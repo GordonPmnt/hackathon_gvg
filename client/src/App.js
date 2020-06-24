@@ -1,10 +1,16 @@
 import React from 'react';
-import Agenda from './components/Agenda.jsx'
+import MediaCard from './components/card'
 
 const App = () => {
   return (
     <div>
-      <Agenda />
+      <MediaCard/>
+      {/* 
+      <MediaCard/>
+      <MediaCard/>
+      <MediaCard/> 
+      */}
+
     </div>
   );
 }
