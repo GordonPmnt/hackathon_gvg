@@ -24,12 +24,9 @@ const styles = {
       width: '100%',
       disply: 'flex',
       justifyContent: 'center',
-      backgroundColor: 'blue'
-
+      backgroundColor: 'rgb(65, 149, 216)',
+      margin: 0,
     },
   }
-  
-
-
 
 export default Header;
