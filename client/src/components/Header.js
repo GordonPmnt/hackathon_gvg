@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <nav>
+    <nav style={styles.navbar}>
       <ul style={styles.header}>
         <li>
             Accueil
@@ -20,13 +20,17 @@ const styles = {
     header: {
       listStyleType: 'none',  
       color: 'red',
-      textAlign: 'center',
       width: '100%',
-      disply: 'flex',
-      justifyContent: 'center',
-      backgroundColor: 'blue'
+      display: 'flex',
+      flexDirection: 'row',
+      margin: 0,
+
 
     },
+    navbar: {
+        height: '3vh',
+        backgroundColor: 'rgb(65, 149, 216)',
+    }
   }
   
 
