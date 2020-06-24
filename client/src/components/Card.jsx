@@ -7,7 +7,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles({
   root: {
@@ -16,6 +15,9 @@ const useStyles = makeStyles({
   media: {
     height: 240,
   },
+  button: {
+    background: "yellow",
+  }
 });
 
 export default function MediaCard() {
@@ -30,8 +32,8 @@ export default function MediaCard() {
           title="Contemplative Reptile"
         />
         <CardContent>
-        <Button size="small" variant="contained" color="secondary">
-        I took a risk
+        <Button size="small" variant="contained" className={classes.button}>
+          I took a risk
         </Button>
           <Typography variant="body2" color="textSecondary" component="p">
           You took a risk and you’re wondering if you got HIV. Don’t panic and tell us everything

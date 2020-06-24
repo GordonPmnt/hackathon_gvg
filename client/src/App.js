@@ -3,6 +3,7 @@ import Agenda from './components/Agenda.jsx';
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Header from "./components/Header";
+import Card from './components/Card.jsx'
 
 const App = () => {
   return (
