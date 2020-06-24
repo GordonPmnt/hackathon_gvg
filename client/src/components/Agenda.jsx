@@ -1,8 +1,7 @@
 import React from 'react';
 import FullCalendar from "@fullcalendar/react";
 import timeGridPlugin from "@fullcalendar/timegrid";
-import Ticket from './Ticket'
-import axios from 'axios';
+import Ticket from './Ticket';
 import colors from '../colors';
 import "./agenda.scss";
 import styled from 'styled-components';
@@ -10,7 +9,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     display: flex;
     flex-direction: row;
-    margin: 20px 0;
+    margin-top: 20px;
     padding: 0 30px;
 `
 
@@ -24,13 +23,27 @@ const PillsContainer = styled.div`
     width: 30%;
 `
 
+const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Logo = styled.img`
+    margin-right: 20px;
+    width: 40px;
+`
+
+const Header = styled.h2`
+    color: ${colors.textBlue};
+`
+
 const Title = () => {
     const logo = require('../hiv_logo.png')
     return (
-        <div>
-            <img src={logo} alt="logo" />
-            <h2>MY NEXT TREATMENTS</h2>
-        </div>
+        <TitleContainer>
+            <Logo src={logo} alt="logo" />
+            <Header>MY NEXT TREATMENTS</Header>
+        </TitleContainer>
     )
 }
 
@@ -43,11 +56,18 @@ const Agenda = () => {
 
     };
 
+    const avatarLogo = require('../prep.png')
+
     return(
         <Container>
             <PillsContainer>
                 <Title />
-                <Ticket />
+                <Ticket
+                    title={"PEP"}
+                    range={"+/- 1h"}
+                    datetime={"Monday 6th June 3:15 pm"}
+                    avatar={avatarLogo}
+                />
             </PillsContainer>
             <AgendaContainer>
                 <FullCalendar

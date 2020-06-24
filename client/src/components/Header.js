@@ -24,16 +24,11 @@ const styles = {
       display: 'flex',
       flexDirection: 'row',
       margin: 0,
-
-
     },
     navbar: {
         height: '40px',
         backgroundColor: 'rgb(65, 149, 216)',
     }
   }
-  
-
-
 
 export default Header;
