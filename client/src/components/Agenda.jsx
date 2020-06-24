@@ -24,13 +24,27 @@ const PillsContainer = styled.div`
     width: 30%;
 `
 
+const TitleContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+`
+
+const Logo = styled.img`
+    margin-right: 20px;
+    width: 40px;
+`
+
+const Header = styled.h2`
+    color: ${colors.textBlue};
+`
+
 const Title = () => {
     const logo = require('../hiv_logo.png')
     return (
-        <div>
-            <img src={logo} alt="logo" />
-            <h2>MY NEXT TREATMENTS</h2>
-        </div>
+        <TitleContainer>
+            <Logo src={logo} alt="logo" />
+            <Header>MY NEXT TREATMENTS</Header>
+        </TitleContainer>
     )
 }
 
