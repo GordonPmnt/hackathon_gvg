@@ -19,7 +19,7 @@ const Header = () => {
 const styles = {
     header: {
       listStyleType: 'none',  
-      color: 'red',
+      color: 'whithe',
       width: '100%',
       display: 'flex',
       flexDirection: 'row',
