@@ -59,9 +59,9 @@ const Ticket = ({ title, range, datetime, avatar }) => {
         <Container>
             <Avatar src={avatar} alt="avatar" />
             <Label>
-                <Title>{title}</Title>
+                <Title>{`${title} (1 pill)`}</Title>
                 <ComfortRange>Comfort range: {range}</ComfortRange>
-                <DateTime>{"Date & Time: "} {datetime}</DateTime>
+                <DateTime>{"Date & Time: "} {datetime.toString()}</DateTime>
             </Label>
             <Button>
                 <ModalCheck />

@@ -61,7 +61,7 @@ const Agenda = ({ events, setEvents }) => {
 
     };
 
-    const avatarLogo = require('../prep.png')
+    const avatarLogo = require('../pep.png')
     return(
         <Container>
             <PillsContainer>
