@@ -69,6 +69,8 @@ const Ticket = ({ id, title, range, start, avatar, updateEvents }) => {
                     updateEvents={updateEvents} 
                     id={id}
                     start={start}
+                    displayedDate={displayedDate}
+                    title={title}
                 />
             </Button>
         </Container>

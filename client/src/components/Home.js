@@ -55,8 +55,8 @@ const Home = ({ events, setEvents, createEvents }) => {
 
             <MediaCard
               image={require('../taking.png')}
-              choice="I’m taking Prep or PEP to prevent HIV"
-              description="You’re taking a prevention treatment such like PEP or PREP. Timing is crucial in order to stop HIV!! Use our tool to plan and manage your treatment."
+              choice="I’m taking PrEP or PEP to prevent HIV"
+              description="You’re taking a prevention treatment such like PEP or PrEP. Timing is crucial in order to stop HIV!! Use our tool to plan and manage your treatment."
               events={events}
               setEvents={setEvents}
               createEvents={createEvents}

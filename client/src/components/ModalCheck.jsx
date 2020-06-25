@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalCheck = ({ updateEvents, id, start }) => {
+const ModalCheck = ({ updateEvents, id, start, displayedDate, title }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   let startDate = new Date(start)
@@ -78,9 +78,9 @@ const ModalCheck = ({ updateEvents, id, start }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="modal-pep-title">Transition modal</h2>
-            <p id="modal-pep-description">react-transition-group animates me.</p>
+          <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{title} - {displayedDate.toLocaleDateString()}</h2>
             <TextField
+                style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px'}}
                 id="datetime-local"
                 label="Pick a date a time"
                 type="datetime-local"
