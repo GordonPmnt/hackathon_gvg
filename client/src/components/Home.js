@@ -70,6 +70,7 @@ const Home = ({ events, setEvents, createEvents }) => {
               setEvents={setEvents}
               createEvents={createEvents}
             />
+           
         </div>
     </div>
     )
