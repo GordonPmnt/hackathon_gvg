@@ -18,6 +18,7 @@ const App = () => {
           title: treatment,
           start: dateTime.setTime(dateTime),
           end: dateTime.setTime(dateTime),
+          taken: false
         }
       ]
       dateTime.setDate(dateTime.getDate() + 1);
@@ -36,6 +37,7 @@ const App = () => {
           ...event,
           start: takenDate,
           end: takenDate,
+          taken: true
         }
       }
       if(event.id > id) {
