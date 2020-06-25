@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from "react-router-dom";
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
@@ -32,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
+const ModalCheck = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -45,20 +44,17 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
   };
 
   const handleSubmit = () => {
-    setOpenFirst(false)
     handleClose();
-    history.push('/agenda')
   }
-
-  let history = useHistory();
 
   return (
     <div>
-      <Validate 
+      <p
+        style={{ margin: 0 }} 
         onClick={handleOpen}
     >
-        NEXT
-      </Validate>
+        Done
+      </p>
       <Modal
         aria-labelledby="modal-pep-title"
         aria-describedby="modal-pep-description"
@@ -87,4 +83,4 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
   );
 }
 
-export default ModalPEP;
+export default ModalCheck;

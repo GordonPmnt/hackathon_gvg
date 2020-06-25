@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ModalCheck from './ModalCheck';
 import colors from '../colors';
 
 const Container = styled.div`
@@ -63,7 +64,7 @@ const Ticket = ({ title, range, datetime, avatar }) => {
                 <DateTime>{"Date & Time: "} {datetime}</DateTime>
             </Label>
             <Button>
-                Done
+                <ModalCheck />
             </Button>
         </Container>
     )
