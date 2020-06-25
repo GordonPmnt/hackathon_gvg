@@ -1,6 +1,6 @@
 import React from 'react';
 import MediaCard from './MediaCard.jsx';
-import Writing from './Writing';
+import Writing from './NewWriting';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
