@@ -47,9 +47,8 @@ const Title = () => {
     )
 }
 
-const Agenda = () => {
+const Agenda = ({ events, setEvents }) => {
 
-    const [events, setEvents] = React.useState([]);
     const [eventId, setEventId] = React.useState();
 
     const handleView = () => {
