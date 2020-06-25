@@ -12,7 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 235,
-    marginBottom: '8%',
+    margin: '5% 30px 0 30px',
     transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
             "&:hover": {
             transform: "scale(1.04)",
@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({ choice, image, description, events, setEvents }) => {
+const MediaCard = ({ choice, image, description, events, setEvents, createEvents }) => {
   const classes = useStyles();
 
   return (
@@ -40,6 +40,7 @@ const MediaCard = ({ choice, image, description, events, setEvents }) => {
           choice={choice}
           events={events}
           setEvents={setEvents}
+          createEvents={createEvents}
         />
           <Typography variant="body2" color="textSecondary" component="p">
             {description}

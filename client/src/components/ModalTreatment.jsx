@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    "&:focus": {
+      outline: 'none'
+    },
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '20px'
   },
   button: {
     cursor: 'pointer',
@@ -28,15 +31,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     fontWeight: 'bold',
     marginBottom: '12%',
-
-    transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
-            "&:hover": {
-            transform: "scale(1.04)",
-            boxShadow: "0 4px 20px 0 rgba(0,0,0,0.12)",
-  }}
+  }
 }));
 
-const ModalTreatment = ({ choice, events, setEvents }) => {
+const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
   const classes = useStyles();
   const [openFirst, setOpenFirst] = React.useState(false);
   const [treatment, setTreatment] = useState('PEP')
@@ -76,9 +74,10 @@ const ModalTreatment = ({ choice, events, setEvents }) => {
       >
         <Fade in={openFirst}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-title">Record the treatment</h2>
+            <p id="transition-modal-description">Choose your treatment</p>
             <Select
+                style={{display: 'flex', justifyContent: 'center'}}
                 native
                 value={treatment}
                 onChange={handleChange}
@@ -87,14 +86,16 @@ const ModalTreatment = ({ choice, events, setEvents }) => {
                     id: 'filled-age-native-simple',
                 }}
             >
-            <option aria-label="None" value="" />
-            <option value={"PEP"}>PEP</option>
-            <option value={"PREP"}>PREP</option>
-        </Select>
+              <option aria-label="None" value="" />
+              <option value={"PEP"}>PEP</option>
+              <option value={"PREP"}>PREP</option>
+            </Select>
             <ModalPEP
                 setOpenFirst={setOpenFirst}
                 events={events}
                 setEvents={setEvents}
+                treatment={treatment}
+                createEvents={createEvents}
             />
           </div>
         </Fade>

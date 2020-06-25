@@ -12,10 +12,10 @@ const Header = () => {
           
         <li>
                 <NavLink style={{padding: '10px', marginRight: '20px' }} to="/">
-                    Accueil
+                    Home
                 </NavLink>
                 <NavLink to="/agenda">
-                    Agenda
+                    My Pills-Box
                 </NavLink>
         </li>
         <li>
@@ -53,7 +53,7 @@ const styles = {
         backgroundColor: 'rgb(65, 149, 216)',
     },
     logo: {
-        width: '100px',
+        width: '90px',
         height: '60px',
         marginLeft: '20px',
         marginTop: '-5px',

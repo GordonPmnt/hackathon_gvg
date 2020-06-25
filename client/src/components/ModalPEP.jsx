@@ -5,7 +5,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
+import { useState } from 'react';
 
 const Validate = styled.div`
     left: 50px;
@@ -26,15 +28,19 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    "&:focus": {
+      outline: 'none'
+    },
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '20px'
   },
 }));
 
-const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
+const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [firstDate, setFirstDate] = useState("2020-06-26T10:30");
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,6 +53,7 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
   const handleSubmit = () => {
     setOpenFirst(false)
     handleClose();
+    createEvents(treatment, firstDate)
     history.push('/agenda')
   }
 
@@ -73,8 +80,18 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="modal-pep-title">Transition modal</h2>
-            <p id="modal-pep-description">react-transition-group animates me.</p>
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
+            <p id="modal-pep-description">The first pill is planed on</p>
+            <TextField
+                id="datetime-local"
+                label="Pick a date a time"
+                type="datetime-local"
+                value={firstDate}
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                onChange={event => setFirstDate(event.target.value)}
+            />
             <Validate
                 onClick={handleSubmit}
             >
