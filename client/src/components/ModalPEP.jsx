@@ -28,9 +28,12 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    "&:focus": {
+      outline: 'none'
+    },
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '20px'
   },
 }));
 
@@ -77,8 +80,8 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="modal-pep-title">{treatment}</h2>
-            <p id="modal-pep-description">react-transition-group animates me.</p>
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
+            <p id="modal-pep-description">The first pill is planed on</p>
             <TextField
                 id="datetime-local"
                 label="Pick a date a time"

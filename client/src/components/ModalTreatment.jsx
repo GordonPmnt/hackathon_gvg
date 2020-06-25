@@ -15,9 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
-    border: '2px solid #000',
+    "&:focus": {
+      outline: 'none'
+    },
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
+    borderRadius: '20px'
   },
   button: {
     cursor: 'pointer',
@@ -71,9 +74,10 @@ const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
       >
         <Fade in={openFirst}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-title">Record the treatment</h2>
+            <p id="transition-modal-description">Choose your treatment</p>
             <Select
+                style={{display: 'flex', justifyContent: 'center'}}
                 native
                 value={treatment}
                 onChange={handleChange}
@@ -82,10 +86,10 @@ const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
                     id: 'filled-age-native-simple',
                 }}
             >
-            <option aria-label="None" value="" />
-            <option value={"PEP"}>PEP</option>
-            <option value={"PREP"}>PREP</option>
-        </Select>
+              <option aria-label="None" value="" />
+              <option value={"PEP"}>PEP</option>
+              <option value={"PREP"}>PREP</option>
+            </Select>
             <ModalPEP
                 setOpenFirst={setOpenFirst}
                 events={events}
