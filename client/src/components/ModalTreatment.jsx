@@ -4,6 +4,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import ModalPEP from './ModalPEP';
+import Select from '@material-ui/core/Select';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const ModalTreatment = ({ choice, events, setEvents }) => {
   const classes = useStyles();
   const [openFirst, setOpenFirst] = React.useState(false);
+  const [treatment, setTreatment] = useState('PEP')
 
   const handleOpen = () => {
     setOpenFirst(true);
@@ -33,6 +36,10 @@ const ModalTreatment = ({ choice, events, setEvents }) => {
   const handleClose = () => {
     setOpenFirst(false);
   };
+
+  const handleChange = (event) => {
+    setTreatment(event.target.value)
+  }
 
   return (
     <div>
@@ -59,6 +66,19 @@ const ModalTreatment = ({ choice, events, setEvents }) => {
           <div className={classes.paper}>
             <h2 id="transition-modal-title">Transition modal</h2>
             <p id="transition-modal-description">react-transition-group animates me.</p>
+            <Select
+                native
+                value={treatment}
+                onChange={handleChange}
+                inputProps={{
+                    name: 'age',
+                    id: 'filled-age-native-simple',
+                }}
+            >
+            <option aria-label="None" value="" />
+            <option value={"PEP"}>PEP</option>
+            <option value={"PREP"}>PREP</option>
+        </Select>
             <ModalPEP
                 setOpenFirst={setOpenFirst}
                 events={events}
