@@ -14,7 +14,12 @@ const useStyles = makeStyles({
     maxWidth: 235,
     marginTop: '3%',
     marginBottom: '5%',
-  },
+    transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
+            "&:hover": {
+            transform: "scale(1.04)",
+            boxShadow: "0 4px 20px 0 rgba(0,0,0,0.12)",
+
+  }},
   media: {
     height: 240,
   },
