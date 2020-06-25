@@ -1,10 +1,21 @@
 import React from 'react';
 import MediaCard from './MediaCard.jsx';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(() => ({
+    MediaCard: {
+        display:'flex', 
+        flexWrap: 'wrap', 
+        justifyContent: 'space-around', 
+        marginTop: '5%'
+    }
+  }));
 
 const Home = () => {
+    const classes = useStyles();
     return (
-        <div style={{display:'flex'}}>
-            <MediaCard
+        <div className={classes.MediaCard}>
+            <MediaCard 
             image="https://s3-alpha-sig.figma.com/img/0082/51f6/5877dcffd84643448a1b0fb88d4a99a8?Expires=1593993600&Signature=TLXvg~qecv-Q56jZw9DHQ2j5z6fh0KH4Z04LxTpu7-eCaNsx9sWwbqXEDAZWse2tucxybk7WrOVpjG8QvDrHjiIpQpc4hbKCqDmaunjKI~3P4q5ocjKO~Q21asWufnCxXeaMDT5n2rMWgazXkFr-AN4iCcwlSrt1eiiFtbIXRkoBtMwWzyw98KDMP50SMWlqPGrSQN71kp-IvXZCHxdIbbaewrjTDhN6LRIZ5Fe0tNFIGEQk2-32kzLixtwtm23EowBwlV6odGevlkQ-SA7u1BKG6aXcFYsZ-kz6ny9h0DpqgHlvc2ioJSjb6CCa0dq22cSR5tM8gIodnt5gUqfVBg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
             choice="I took a risk"
             description="You took a risk and you’re wondering if you got HIV. Don’t panic and tell us everything"
@@ -25,7 +36,7 @@ const Home = () => {
             <MediaCard
             image="https://s3-alpha-sig.figma.com/img/2b5c/e1d9/5d257941d9ec951cf4059e27df3efa0c?Expires=1593993600&Signature=QlH73XKB-PD4axF2UCIVz84XFN5H-kZGXPBsP9uyxiH~DRDh286HfgC6jD7E4lNwxrE4ax7ZPycNatb4Qjhrn6TS4oc-yfMZ~YB9IV8lRQdE7kVYxYdYrzywEfs30zcgpUwpMXO3P7hur3xJQn2HGxf84V1g4ZoNc5rJE8rDSU8r96g~cU53yxkX4sRNfkkAqGKXrPkpCXW4ay3IpLvW1PN2tDUxZRKhHtDm-Fn9hlNBfJwzwIFZp4XT~TeUab0sYoviipx5V7iOtfSwiaVZrPnzDk-erGV33iE9T~tnKVDRuruHP63SRqHhG3Xw8s13pbNuwQorigGcl-Horg~Npg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
             choice="I follow a triple therapy"
-            description="You follow a triple therapy. We can help you to manage your treatment efficiently on time whereever you are."
+            description="You follow a triple therapy. We can help you to manage your treatment efficiently on time wherever you are."
             />
         </div>
     )
