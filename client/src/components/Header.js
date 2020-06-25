@@ -12,10 +12,10 @@ const Header = () => {
           
         <li>
                 <NavLink style={{padding: '10px', marginRight: '20px' }} to="/">
-                    Accueil
+                    Home
                 </NavLink>
                 <NavLink to="/agenda">
-                    Agenda
+                    My Pills-Box
                 </NavLink>
         </li>
         <li>
