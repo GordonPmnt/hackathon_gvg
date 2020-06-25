@@ -7,6 +7,21 @@ import Header from "./components/Header";
 
 const App = () => {
   const [events, setEvents] = useState([])
+  const createEvents = (treatment, firstDate) => {
+    let newEvents = events
+    let dateTime = firstDate
+    for(let i=1; i<=30; i++) {
+      newEvents = [
+        ...newEvents,
+        { 
+          id: i,
+          treatment,
+          dateTime,
+        }
+      ]
+    };
+    setEvents(newEvents);
+  }
 
   return (
     <div>
@@ -20,6 +35,7 @@ const App = () => {
               {...props}
               events={events}
               setEvents={setEvents}
+              createEvents={createEvents}
             />
           } 
         />

@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
     }
   }));
 
-const Home = ({ events, setEvents }) => {
+const Home = ({ events, setEvents, createEvents }) => {
     const classes = useStyles();
     return (
     <div>
@@ -25,6 +25,7 @@ const Home = ({ events, setEvents }) => {
               description="You took a risk and you’re wondering if you got HIV. Don’t panic and tell us everything"
               events={events}
               setEvents={setEvents}
+              createEvents={createEvents}
             />
             
             <MediaCard
@@ -33,6 +34,7 @@ const Home = ({ events, setEvents }) => {
               description="We’re here to help you to find a doctor in order to test you and accompany you during the process"
               events={events}
               setEvents={setEvents}
+              createEvents={createEvents}
             />
 
             <MediaCard
@@ -41,6 +43,7 @@ const Home = ({ events, setEvents }) => {
               description="You’re taking a prevention treatment such like PEP or PREP. Timing is crucial in order to stop HIV!! Use our tool to plan and manage your treatment."
               events={events}
               setEvents={setEvents}
+              createEvents={createEvents}
             />
 
             <MediaCard
@@ -49,6 +52,7 @@ const Home = ({ events, setEvents }) => {
               description="You follow a triple therapy. We can help you to manage your treatment efficiently on time wherever you are."
               events={events}
               setEvents={setEvents}
+              createEvents={createEvents}
             />
         </div>
     </div>

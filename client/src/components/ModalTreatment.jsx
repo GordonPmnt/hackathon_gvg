@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ModalTreatment = ({ choice, events, setEvents }) => {
+const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
   const classes = useStyles();
   const [openFirst, setOpenFirst] = React.useState(false);
   const [treatment, setTreatment] = useState('PEP')
@@ -90,6 +90,8 @@ const ModalTreatment = ({ choice, events, setEvents }) => {
                 setOpenFirst={setOpenFirst}
                 events={events}
                 setEvents={setEvents}
+                treatment={treatment}
+                createEvents={createEvents}
             />
           </div>
         </Fade>

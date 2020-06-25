@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({ choice, image, description, events, setEvents }) => {
+const MediaCard = ({ choice, image, description, events, setEvents, createEvents }) => {
   const classes = useStyles();
 
   return (
@@ -40,6 +40,7 @@ const MediaCard = ({ choice, image, description, events, setEvents }) => {
           choice={choice}
           events={events}
           setEvents={setEvents}
+          createEvents={createEvents}
         />
           <Typography variant="body2" color="textSecondary" component="p">
             {description}

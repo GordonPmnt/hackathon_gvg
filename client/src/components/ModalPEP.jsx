@@ -7,6 +7,7 @@ import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
+import { useState } from 'react';
 
 const Validate = styled.div`
     left: 50px;
@@ -33,9 +34,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
+const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [firstDate, setFirstDate] = useState("2020-06-26T10:30");
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,6 +50,7 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
   const handleSubmit = () => {
     setOpenFirst(false)
     handleClose();
+    createEvents(treatment, firstDate)
     history.push('/agenda')
   }
 
@@ -74,16 +77,17 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="modal-pep-title">Transition modal</h2>
+            <h2 id="modal-pep-title">{treatment}</h2>
             <p id="modal-pep-description">react-transition-group animates me.</p>
             <TextField
                 id="datetime-local"
                 label="Pick a date a time"
                 type="datetime-local"
-                defaultValue="2020-06-26T10:30"
+                value={firstDate}
                 InputLabelProps={{
                     shrink: true,
                 }}
+                onChange={event => setFirstDate(event.target.value)}
             />
             <Validate
                 onClick={handleSubmit}
