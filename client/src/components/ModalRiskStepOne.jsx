@@ -5,18 +5,18 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
+import ModalRiskStepTwo from './ModalRiskStepTwo';
 import colors from '../colors';
 import { useState } from 'react';
 
-const Validate = styled.div`
-    left: 50px;
-    color: white;
-    font-size: 1rem;
-    padding: 5px 20px;
-    border-radius: 15px;
-    text-align: center;
-    background: ${colors.youtubeRed};
-    cursor: pointer;
+const Img = styled.img`
+  display: block;
+  width: 175px;
+  border-radius: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `
 
 const useStyles = makeStyles((theme) => ({
@@ -34,43 +34,49 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2, 4, 3),
     borderRadius: '20px'
   },
+  button: {
+    cursor: 'pointer',
+    backgroundColor: 'rgb(197, 42, 34)',
+    color: 'white',
+    border: 'none',
+    borderRadius: 10,
+    padding: 10,
+    fontWeight: 'bold',
+    marginBottom: '12%',
+    width: '100%',
+    height: '50px'
+  },
 }));
 
-const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked }) => {
+const ModalRiskStepOne = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  let startDate = new Date(start)
 
   const handleOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCloseFirst = () => {
     setOpen(false);
   };
 
-  const handleSubmit = () => {
-    updateEvents(id, takenDate)
-    handleClose();
-    setChecked((prev) => !prev)
-  }
-
-  const [takenDate, setTakenDate] = useState('');
+  const [riskDate, setRiskDate] = useState('');
 
   return (
     <div>
-      <p
-        style={{ margin: 0 }} 
+      <button 
+        type="button" 
         onClick={handleOpen}
+        className={classes.button}
     >
-        I took my pill
-      </p>
+        I took a risk
+      </button>
       <Modal
-        aria-labelledby="modal-pep-title"
-        aria-describedby="modal-pep-description"
+        aria-labelledby="modal-riskOne-title"
+        aria-describedby="modal-riskOne-description"
         className={classes.modal}
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseFirst}
         closeAfterTransition
         BackdropComponent={Backdrop}
         BackdropProps={{
@@ -79,23 +85,23 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
       >
         <Fade in={open}>
           <div className={classes.paper}>
-          <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{title} - {displayedDate.toLocaleDateString()}</h2>
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">I took a risk</h2>
+            <Img src={require('../listen.png')} alt="listen" />
+            <p id="modal-pep-description">Don't panic and tell us when you took the risk.</p>
             <TextField
-                style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px'}}
                 id="datetime-local"
                 label="Pick a date a time"
                 type="datetime-local"
-                value={takenDate}
+                value={riskDate}
                 InputLabelProps={{
                     shrink: true,
                 }}
-                onChange={event => setTakenDate(event.target.value)}
+                onChange={event => setRiskDate(event.target.value)}
             />
-            <Validate
-                onClick={handleSubmit}
-            >
-                VALIDATE
-            </Validate>
+            <ModalRiskStepTwo
+              riskDate={riskDate}
+              handleCloseFirst={handleCloseFirst}
+            />
           </div>
         </Fade>
       </Modal>
@@ -103,4 +109,4 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
   );
 }
 
-export default ModalCheck;
+export default ModalRiskStepOne;

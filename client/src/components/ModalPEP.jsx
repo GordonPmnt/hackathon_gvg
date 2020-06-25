@@ -90,7 +90,7 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
             <TextField
                 style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px', borderRadius: '5px'}}
                 id="datetime-local"
-                label="Pick a date a time"
+                label="Pick a date and a time"
                 type="datetime-local"
                 value={firstDate}
                 InputLabelProps={{

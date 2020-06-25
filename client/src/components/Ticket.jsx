@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ModalCheck from './ModalCheck';
 import colors from '../colors';
+import Slide from '@material-ui/core/Slide';
 
 const Container = styled.div`
     padding: 5%;
@@ -56,24 +57,33 @@ const Button = styled.div`
 
 const Ticket = ({ id, title, range, start, avatar, updateEvents }) => {
     let displayedDate = new Date(start)
+    const [checked, setChecked] = React.useState(true);
+
     return (
-        <Container>
-            <Avatar src={avatar} alt="avatar" />
-            <Label>
-                <Title>{`${title} (1 pill)`}</Title>
-                <DateTime>{"Day: "} {displayedDate.toLocaleDateString()}</DateTime>
-                <DateTime>{"Time: "} {displayedDate.toLocaleTimeString()}</DateTime>
-            </Label>
-            <Button>
-                <ModalCheck 
-                    updateEvents={updateEvents} 
-                    id={id}
-                    start={start}
-                    displayedDate={displayedDate}
-                    title={title}
-                />
-            </Button>
-        </Container>
+        <Slide 
+            direction="right" 
+            in={checked} 
+            mountOnEnter 
+            unmountOnExit
+            timeout={{ enter: 500, exit: 500 }}
+        >
+            <Container>
+                <Avatar src={avatar} alt="avatar" />
+                <Label>
+                    <Title>{`${title} (1 pill)`}</Title>
+                    <DateTime>{"Day: "} {displayedDate.toLocaleDateString()}</DateTime>
+                    <DateTime>{"Time: "} {displayedDate.toLocaleTimeString()}</DateTime>
+                </Label>
+                <Button>
+                    <ModalCheck 
+                        updateEvents={updateEvents} 
+                        id={id}
+                        start={start}
+                        setChecked={setChecked}
+                    />
+                </Button>
+            </Container>
+        </Slide>
     )
 }
 

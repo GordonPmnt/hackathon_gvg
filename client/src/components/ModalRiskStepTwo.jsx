@@ -4,7 +4,6 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
 import { useState } from 'react';
 
@@ -16,6 +15,8 @@ const Validate = styled.div`
     border-radius: 15px;
     text-align: center;
     background: ${colors.youtubeRed};
+    margin-top: 20px;
+    margin-bottom: 20px;
     cursor: pointer;
 `
 
@@ -36,10 +37,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked }) => {
+const ModalRiskStepTwo = ({ riskDate, handleCloseFirst }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  let startDate = new Date(start)
+
+  let now = new Date();
+  let risk = new Date(riskDate)
+  let timing =  Math.floor(Math.abs(now - risk) / 36e5);
 
   const handleOpen = () => {
     setOpen(true);
@@ -47,27 +51,19 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
 
   const handleClose = () => {
     setOpen(false);
+    handleCloseFirst()
   };
-
-  const handleSubmit = () => {
-    updateEvents(id, takenDate)
-    handleClose();
-    setChecked((prev) => !prev)
-  }
-
-  const [takenDate, setTakenDate] = useState('');
 
   return (
     <div>
-      <p
-        style={{ margin: 0 }} 
+      <Validate 
         onClick={handleOpen}
     >
-        I took my pill
-      </p>
+        NEXT
+      </Validate>
       <Modal
-        aria-labelledby="modal-pep-title"
-        aria-describedby="modal-pep-description"
+        aria-labelledby="modal-riskOne-title"
+        aria-describedby="modal-riskOne-description"
         className={classes.modal}
         open={open}
         onClose={handleClose}
@@ -79,22 +75,15 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
       >
         <Fade in={open}>
           <div className={classes.paper}>
-          <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{title} - {displayedDate.toLocaleDateString()}</h2>
-            <TextField
-                style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px'}}
-                id="datetime-local"
-                label="Pick a date a time"
-                type="datetime-local"
-                value={takenDate}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                onChange={event => setTakenDate(event.target.value)}
-            />
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">Keep calm and get PEP</h2>
+            <p id="modal-pep-description">You're under 72h delay and you can stop HIV! But you need to act quickly.</p>
+            <p id="modal-pep-description">You still have <span style={{ color: colors.youtubeRed, fontWeight: 'bold', fontSize: '1.2rem' }}>{timing}hours</span> to take a Post-Exposure-Treatment and stop HIV.</p>
+            <p id="modal-pep-description">More you wait and less the treatment is efficient, so go to the nearest hospital as quick as possible, explain the situation and ask for a post-exposure-treatment (PEP).</p>
+            <p id="modal-pep-description">Come back to us once you got your PEP.</p>
             <Validate
-                onClick={handleSubmit}
+                onClick={handleClose}
             >
-                VALIDATE
+                OK I GO TO HOSPITAL
             </Validate>
           </div>
         </Fade>
@@ -103,4 +92,4 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
   );
 }
 
-export default ModalCheck;
+export default ModalRiskStepTwo;

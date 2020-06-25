@@ -2,6 +2,8 @@ import React from 'react';
 import MediaCard from './MediaCard.jsx';
 import Writing from './NewWriting';
 import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import json2mq from 'json2mq';
 
 const useStyles = makeStyles(() => ({
     MediaGeneral:{
@@ -9,10 +11,12 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center",
         alignItems: "center",
 
-       marginLeft: "22%",
-       marginRight: "22%",
+       marginLeft: "21%",
+       marginRight: "21%",
+       marginTop: "3%",
     },
     MediaWritte:{
+        fontSize: "20px",
         textAlign: "center",
         color: "rgb(65, 149, 216)",
     },
@@ -20,16 +24,22 @@ const useStyles = makeStyles(() => ({
     MediaCard: {
         display:'flex', 
         flexWrap: 'wrap', 
-        justifyContent: 'center', 
+        justifyContent: 'center',
+        marginBottom: "10%",
     }
   }));
 
 const Home = ({ events, setEvents, createEvents }) => {
+    const mobile = useMediaQuery(
+      json2mq({
+        maxWidth: 600,
+      }),
+    );
     const classes = useStyles();
     return (
     <div>
         <div className={classes.MediaGeneral}>
-            <img src={require('../hiv_logo.png')} width="100px"></img>
+            <img src={require('../hiv_logo.png')} width="75px" style={mobile ? { margin: '25px' } : { marginRight: '30px' }} ></img>
             <div className={classes.MediaWritte}>
                <Writing/>
             </div>
@@ -42,6 +52,7 @@ const Home = ({ events, setEvents, createEvents }) => {
               events={events}
               setEvents={setEvents}
               createEvents={createEvents}
+              risk
             />
             
             <MediaCard
@@ -70,7 +81,7 @@ const Home = ({ events, setEvents, createEvents }) => {
               setEvents={setEvents}
               createEvents={createEvents}
             />
-           
+          
         </div>
     </div>
     )

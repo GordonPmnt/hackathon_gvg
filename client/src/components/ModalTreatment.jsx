@@ -32,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
     fontWeight: 'bold',
     marginBottom: '12%',
+    width: '100%',
+    height: '50px'
   }
 }));
 
