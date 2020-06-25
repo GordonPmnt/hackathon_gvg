@@ -1,5 +1,6 @@
 import React from 'react';
 import MediaCard from './MediaCard.jsx';
+import Writing from './writing.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
@@ -14,6 +15,10 @@ const useStyles = makeStyles(() => ({
 const Home = () => {
     const classes = useStyles();
     return (
+    <div>
+        <div>
+            <Writing/>
+        </div>
         <div className={classes.MediaCard}>
             <MediaCard 
             image = {require('../risk.png')}
@@ -39,6 +44,7 @@ const Home = () => {
             description="You follow a triple therapy. We can help you to manage your treatment efficiently on time wherever you are."
             />
         </div>
+    </div>
     )
 }
 
