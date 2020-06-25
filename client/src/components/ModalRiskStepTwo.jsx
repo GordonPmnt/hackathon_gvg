@@ -77,13 +77,13 @@ const ModalRiskStepTwo = ({ riskDate, handleCloseFirst }) => {
           <div className={classes.paper}>
             <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">Keep calm and get PEP</h2>
             <p id="modal-pep-description">You're under 72h delay and you can stop HIV! But you need to act quickly.</p>
-            <p id="modal-pep-description">You still have <span style={{ color: colors.youtubeRed, fontWeight: 'bold' }}>{timing}hours</span> to take a Post-Exposure-Treatment and stop HIV.</p>
+            <p id="modal-pep-description">You still have <span style={{ color: colors.youtubeRed, fontWeight: 'bold', fontSize: '1.2rem' }}>{timing}hours</span> to take a Post-Exposure-Treatment and stop HIV.</p>
             <p id="modal-pep-description">More you wait and less the treatment is efficient, so go to the nearest hospital as quick as possible, explain the situation and ask for a post-exposure-treatment (PEP).</p>
             <p id="modal-pep-description">Come back to us once you got your PEP.</p>
             <Validate
                 onClick={handleClose}
             >
-                I GO TO HOSPITAL
+                OK I GO TO HOSPITAL
             </Validate>
           </div>
         </Fade>
