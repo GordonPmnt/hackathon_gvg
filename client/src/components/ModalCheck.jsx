@@ -53,7 +53,7 @@ const ModalCheck = () => {
         style={{ margin: 0 }} 
         onClick={handleOpen}
     >
-        Done
+        I took my pill
       </p>
       <Modal
         aria-labelledby="modal-pep-title"

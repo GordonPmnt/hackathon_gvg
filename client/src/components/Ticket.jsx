@@ -44,7 +44,7 @@ const Button = styled.div`
     position: relative;
     top: 35px;
     height: 25px;
-    left: 50px;
+    left: 100px;
     color: white;
     font-size: 0.8rem;
     font-weight: bold;
@@ -54,14 +54,15 @@ const Button = styled.div`
     cursor: pointer;
 `
 
-const Ticket = ({ title, range, datetime, avatar }) => {
+const Ticket = ({ id, title, range, start, avatar }) => {
+    let displayedDate = new Date(start)
     return (
         <Container>
             <Avatar src={avatar} alt="avatar" />
             <Label>
-                <Title>{title}</Title>
-                <ComfortRange>Comfort range: {range}</ComfortRange>
-                <DateTime>{"Date & Time: "} {datetime}</DateTime>
+                <Title>{`${title} (1 pill)`}</Title>
+                <DateTime>{"Day: "} {displayedDate.toLocaleDateString()}</DateTime>
+                <DateTime>{"Time: "} {displayedDate.toLocaleTimeString()}</DateTime>
             </Label>
             <Button>
                 <ModalCheck />

@@ -25,24 +25,33 @@ const PillsContainer = styled.div`
 
 const TitleContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 `
 
 const Logo = styled.img`
-    margin-right: 20px;
-    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 `
 
 const Header = styled.h2`
     color: ${colors.textBlue};
+    margin: 0;
+    text-align: center;
 `
 
-const Title = () => {
-    const logo = require('../hiv_logo.png')
+const ToDoList = styled.div`
+    overflow: scroll;
+    max-height: 52.5vh;
+`
+
+
+const Title = ({ events }) => {
+    const logo = require('../pillbox.png')
     return (
         <TitleContainer>
+            <Header>MY PILLS-BOX {`(${events.length} PILLS)`} </Header>
             <Logo src={logo} alt="logo" />
-            <Header>MY NEXT TREATMENTS</Header>
         </TitleContainer>
     )
 }
@@ -55,18 +64,21 @@ const Agenda = ({ events, setEvents }) => {
 
     };
 
-    const avatarLogo = require('../prep.png')
-    console.log(events)
+    const avatarLogo = require('../pep.png')
     return(
         <Container>
             <PillsContainer>
-                <Title />
-                <Ticket
-                    title={"PEP"}
-                    range={"+/- 1h"}
-                    datetime={"Monday 6th June 3:15 pm"}
-                    avatar={avatarLogo}
-                />
+                <Title events={events} />
+                <ToDoList>
+                    {events.map(event =>                 
+                        <Ticket
+                            key={event.id}
+                            range={"+/- 1h"}
+                            avatar={avatarLogo}
+                            {...event}
+                        />)
+                    }
+                </ToDoList>
             </PillsContainer>
             <AgendaContainer>
                 <FullCalendar
