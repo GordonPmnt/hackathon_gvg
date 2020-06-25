@@ -4,6 +4,19 @@ import Writing from './NewWriting';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
+    MediaGeneral:{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+       marginLeft: "22%",
+       marginRight: "22%",
+    },
+    MediaWritte:{
+        textAlign: "center",
+        color: "rgb(65, 149, 216)",
+    },
+
     MediaCard: {
         display:'flex', 
         flexWrap: 'wrap', 
@@ -15,8 +28,11 @@ const Home = ({ events, setEvents, createEvents }) => {
     const classes = useStyles();
     return (
     <div>
-        <div>
-            <Writing/>
+        <div className={classes.MediaGeneral}>
+            <img src={require('../hiv_logo.png')} width="100px"></img>
+            <div className={classes.MediaWritte}>
+               <Writing/>
+            </div>
         </div>
         <div className={classes.MediaCard}>
             <MediaCard 
@@ -54,6 +70,7 @@ const Home = ({ events, setEvents, createEvents }) => {
               setEvents={setEvents}
               createEvents={createEvents}
             />
+           
         </div>
     </div>
     )
