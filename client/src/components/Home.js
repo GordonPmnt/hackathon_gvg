@@ -52,6 +52,7 @@ const Home = ({ events, setEvents, createEvents }) => {
               events={events}
               setEvents={setEvents}
               createEvents={createEvents}
+              risk
             />
             
             <MediaCard

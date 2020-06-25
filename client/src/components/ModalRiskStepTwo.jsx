@@ -1,11 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from "react-router-dom";
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
-import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
 import { useState } from 'react';
 
@@ -17,6 +15,8 @@ const Validate = styled.div`
     border-radius: 15px;
     text-align: center;
     background: ${colors.youtubeRed};
+    margin-top: 20px;
+    margin-bottom: 20px;
     cursor: pointer;
 `
 
@@ -37,10 +37,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) => {
+const ModalRiskStepTwo = ({ riskDate, handleCloseFirst }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [firstDate, setFirstDate] = useState("2020-06-26T10:30");
+
+  let now = new Date();
+  let risk = new Date(riskDate)
+  let timing =  Math.floor(Math.abs(now - risk) / 36e5);
 
   const handleOpen = () => {
     setOpen(true);
@@ -48,16 +51,8 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
 
   const handleClose = () => {
     setOpen(false);
+    handleCloseFirst()
   };
-
-  const handleSubmit = () => {
-    setOpenFirst(false)
-    handleClose();
-    createEvents(treatment, firstDate)
-    history.push('/agenda')
-  }
-
-  let history = useHistory();
 
   return (
     <div>
@@ -67,8 +62,8 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
         NEXT
       </Validate>
       <Modal
-        aria-labelledby="modal-pep-title"
-        aria-describedby="modal-pep-description"
+        aria-labelledby="modal-riskOne-title"
+        aria-describedby="modal-riskOne-description"
         className={classes.modal}
         open={open}
         onClose={handleClose}
@@ -80,22 +75,15 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
-            <p id="modal-pep-description">The first pill is planed on</p>
-            <TextField
-                id="datetime-local"
-                label="Pick a date and a time"
-                type="datetime-local"
-                value={firstDate}
-                InputLabelProps={{
-                    shrink: true,
-                }}
-                onChange={event => setFirstDate(event.target.value)}
-            />
+            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">Keep calm and get PEP</h2>
+            <p id="modal-pep-description">You're under 72h delay and you can stop HIV! But you need to act quickly.</p>
+            <p id="modal-pep-description">You still have <span style={{ color: colors.youtubeRed, fontWeight: 'bold' }}>{timing}hours</span> to take a Post-Exposure-Treatment and stop HIV.</p>
+            <p id="modal-pep-description">More you wait and less the treatment is efficient, so go to the nearest hospital as quick as possible, explain the situation and ask for a post-exposure-treatment (PEP).</p>
+            <p id="modal-pep-description">Come back to us once you got your PEP.</p>
             <Validate
-                onClick={handleSubmit}
+                onClick={handleClose}
             >
-                VALIDATE
+                I GO TO HOSPITAL
             </Validate>
           </div>
         </Fade>
@@ -104,4 +92,4 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
   );
 }
 
-export default ModalPEP;
+export default ModalRiskStepTwo;
