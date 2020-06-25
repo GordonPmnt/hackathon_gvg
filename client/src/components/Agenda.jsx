@@ -70,10 +70,9 @@ const Agenda = ({ events, setEvents }) => {
                     {events.map(event =>                 
                         <Ticket
                             key={event.id}
-                            title={event.title}
                             range={"+/- 1h"}
-                            datetime={event.start}
                             avatar={avatarLogo}
+                            {...event}
                         />)
                     }
                 </ToDoList>
