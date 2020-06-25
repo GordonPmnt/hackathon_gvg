@@ -12,8 +12,7 @@ import Typography from '@material-ui/core/Typography';
 const useStyles = makeStyles({
   root: {
     maxWidth: 235,
-    marginTop: '3%',
-    marginBottom: '5%',
+    marginBottom: '8%',
     transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
             "&:hover": {
             transform: "scale(1.04)",

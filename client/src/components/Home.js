@@ -1,9 +1,22 @@
 import React from 'react';
 import MediaCard from './MediaCard.jsx';
-import Writing from './writing.jsx';
+import Writing from './Writing.jsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
+    MediaGeneral:{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+
+       marginLeft: "22%",
+       marginRight: "22%",
+    },
+    MediaWritte:{
+        textAlign: "center",
+        color: "rgb(65, 149, 216)",
+    },
+
     MediaCard: {
         display:'flex', 
         flexWrap: 'wrap', 
@@ -16,8 +29,11 @@ const Home = () => {
     const classes = useStyles();
     return (
     <div>
-        <div>
-            <Writing/>
+        <div className={classes.MediaGeneral}>
+            <img src={require('../hiv_logo.png')} width="100px"></img>
+            <div className={classes.MediaWritte}>
+               <Writing/>
+            </div>
         </div>
         <div className={classes.MediaCard}>
             <MediaCard 
