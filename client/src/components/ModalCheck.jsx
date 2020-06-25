@@ -4,7 +4,9 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
+import { useState } from 'react';
 
 const Validate = styled.div`
     left: 50px;
@@ -31,9 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalCheck = () => {
+const ModalCheck = ({ updateEvents, id, start }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  let startDate = new Date(start)
 
   const handleOpen = () => {
     setOpen(true);
@@ -44,8 +47,11 @@ const ModalCheck = () => {
   };
 
   const handleSubmit = () => {
+    updateEvents(id, takenDate)
     handleClose();
   }
+
+  const [takenDate, setTakenDate] = useState('');
 
   return (
     <div>
@@ -71,6 +77,16 @@ const ModalCheck = () => {
           <div className={classes.paper}>
             <h2 id="modal-pep-title">Transition modal</h2>
             <p id="modal-pep-description">react-transition-group animates me.</p>
+            <TextField
+                id="datetime-local"
+                label="Pick a date a time"
+                type="datetime-local"
+                value={takenDate}
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                onChange={event => setTakenDate(event.target.value)}
+            />
             <Validate
                 onClick={handleSubmit}
             >

@@ -56,7 +56,7 @@ const Title = ({ events }) => {
     )
 }
 
-const Agenda = ({ events, setEvents }) => {
+const Agenda = ({ events, setEvents, updateEvents }) => {
 
     const [eventId, setEventId] = React.useState();
 
@@ -74,6 +74,7 @@ const Agenda = ({ events, setEvents }) => {
                         <Ticket
                             key={event.id}
                             range={"+/- 1h"}
+                            updateEvents={updateEvents}
                             avatar={avatarLogo}
                             {...event}
                         />)

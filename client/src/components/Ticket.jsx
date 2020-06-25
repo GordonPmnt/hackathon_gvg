@@ -54,7 +54,7 @@ const Button = styled.div`
     cursor: pointer;
 `
 
-const Ticket = ({ id, title, range, start, avatar }) => {
+const Ticket = ({ id, title, range, start, avatar, updateEvents }) => {
     let displayedDate = new Date(start)
     return (
         <Container>
@@ -65,7 +65,11 @@ const Ticket = ({ id, title, range, start, avatar }) => {
                 <DateTime>{"Time: "} {displayedDate.toLocaleTimeString()}</DateTime>
             </Label>
             <Button>
-                <ModalCheck />
+                <ModalCheck 
+                    updateEvents={updateEvents} 
+                    id={id}
+                    start={start}
+                />
             </Button>
         </Container>
     )
