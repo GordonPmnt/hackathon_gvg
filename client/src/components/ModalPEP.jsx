@@ -3,6 +3,19 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import styled from 'styled-components';
+import colors from '../colors';
+
+const Validate = styled.div`
+    left: 50px;
+    color: white;
+    font-size: 1rem;
+    padding: 5px 20px;
+    border-radius: 15px;
+    text-align: center;
+    background: ${colors.youtubeRed};
+    cursor: pointer;
+`
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -16,12 +29,9 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
-  button: {
-    cursor: 'pointer',
-  }
 }));
 
-const ModalPEP = () => {
+const ModalPEP = ({ setOpenFirst }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -33,18 +43,21 @@ const ModalPEP = () => {
     setOpen(false);
   };
 
+  const handleSubmit = () => {
+    setOpenFirst(false)
+    handleClose();
+  }
+
   return (
     <div>
-      <button 
-        type="button" 
+      <Validate 
         onClick={handleOpen}
-        className={classes.button}
     >
         NEXT
-      </button>
+      </Validate>
       <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
+        aria-labelledby="modal-pep-title"
+        aria-describedby="modal-pep-description"
         className={classes.modal}
         open={open}
         onClose={handleClose}
@@ -56,8 +69,13 @@ const ModalPEP = () => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">react-transition-group animates me.</p>
+            <h2 id="modal-pep-title">Transition modal</h2>
+            <p id="modal-pep-description">react-transition-group animates me.</p>
+            <Validate
+                onClick={handleSubmit}
+            >
+                VALIDATE
+            </Validate>
           </div>
         </Fade>
       </Modal>
