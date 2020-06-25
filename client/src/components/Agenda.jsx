@@ -5,6 +5,7 @@ import Ticket from './Ticket';
 import colors from '../colors';
 import "./agenda.scss";
 import styled from 'styled-components';
+import Slide from '@material-ui/core/Slide';
 
 const Container = styled.div`
     display: flex;
@@ -59,25 +60,28 @@ const Title = ({ events }) => {
 const Agenda = ({ events, setEvents, updateEvents }) => {
 
     const [eventId, setEventId] = React.useState();
+    const [moved, setMoved] = React.useState(false);
 
     const handleView = () => {
 
     };
 
     const avatarLogo = require('../pep.png')
+    
     return(
         <Container>
             <PillsContainer>
                 <Title events={events.filter(event => !event.taken)} />
                 <ToDoList>
-                    {events.filter(event => !event.taken).map(event =>                 
+                    {events.map(event =>
                         <Ticket
                             key={event.id}
                             range={"+/- 1h"}
                             updateEvents={updateEvents}
                             avatar={avatarLogo}
                             {...event}
-                        />)
+                        />            
+                    )
                     }
                 </ToDoList>
             </PillsContainer>
