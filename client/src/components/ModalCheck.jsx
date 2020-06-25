@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalCheck = ({ updateEvents, id, start }) => {
+const ModalCheck = ({ updateEvents, id, start, setChecked }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   let startDate = new Date(start)
@@ -52,6 +52,7 @@ const ModalCheck = ({ updateEvents, id, start }) => {
   const handleSubmit = () => {
     updateEvents(id, takenDate)
     handleClose();
+    setChecked((prev) => !prev)
   }
 
   const [takenDate, setTakenDate] = useState('');
