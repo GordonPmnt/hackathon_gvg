@@ -37,12 +37,18 @@ const Header = styled.h2`
     color: ${colors.textBlue};
 `
 
+const ToDoList = styled.div`
+    overflow: scroll;
+    max-height: 70vh;
+`
+
+
 const Title = () => {
     const logo = require('../hiv_logo.png')
     return (
         <TitleContainer>
             <Logo src={logo} alt="logo" />
-            <Header>MY NEXT TREATMENTS</Header>
+            <Header>MY NEXT PILLS</Header>
         </TitleContainer>
     )
 }
@@ -56,17 +62,21 @@ const Agenda = ({ events, setEvents }) => {
     };
 
     const avatarLogo = require('../prep.png')
-    console.log(events)
     return(
         <Container>
             <PillsContainer>
                 <Title />
-                <Ticket
-                    title={"PEP"}
-                    range={"+/- 1h"}
-                    datetime={"Monday 6th June 3:15 pm"}
-                    avatar={avatarLogo}
-                />
+                <ToDoList>
+                    {events.map(event =>                 
+                        <Ticket
+                            key={event.id}
+                            title={event.title}
+                            range={"+/- 1h"}
+                            datetime={event.start}
+                            avatar={avatarLogo}
+                        />)
+                    }
+                </ToDoList>
             </PillsContainer>
             <AgendaContainer>
                 <FullCalendar
