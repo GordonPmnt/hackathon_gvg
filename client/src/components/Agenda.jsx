@@ -68,9 +68,9 @@ const Agenda = ({ events, setEvents, updateEvents }) => {
     return(
         <Container>
             <PillsContainer>
-                <Title events={events} />
+                <Title events={events.filter(event => !event.taken)} />
                 <ToDoList>
-                    {events.map(event =>                 
+                    {events.filter(event => !event.taken).map(event =>                 
                         <Ticket
                             key={event.id}
                             range={"+/- 1h"}
