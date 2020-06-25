@@ -7,8 +7,7 @@ const useStyles = makeStyles(() => ({
     MediaCard: {
         display:'flex', 
         flexWrap: 'wrap', 
-        justifyContent: 'space-around', 
-        marginTop: '5%'
+        justifyContent: 'center', 
     }
   }));
 

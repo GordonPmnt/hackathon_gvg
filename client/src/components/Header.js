@@ -53,7 +53,7 @@ const styles = {
         backgroundColor: 'rgb(65, 149, 216)',
     },
     logo: {
-        width: '100px',
+        width: '90px',
         height: '60px',
         marginLeft: '20px',
         marginTop: '-5px',
