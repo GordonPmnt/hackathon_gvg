@@ -2,6 +2,8 @@ import React from 'react';
 import MediaCard from './MediaCard.jsx';
 import Writing from './NewWriting';
 import { makeStyles } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import json2mq from 'json2mq';
 
 const useStyles = makeStyles(() => ({
     MediaGeneral:{
@@ -28,15 +30,22 @@ const useStyles = makeStyles(() => ({
   }));
 
 const Home = ({ events, setEvents, createEvents }) => {
+    const mobile = useMediaQuery(
+      json2mq({
+        maxWidth: 600,
+      }),
+    );
     const classes = useStyles();
     return (
     <div>
+      {!mobile &&
         <div className={classes.MediaGeneral}>
             <img src={require('../hiv_logo.png')} width="95px" style={{marginRight: '30px'}} ></img>
             <div className={classes.MediaWritte}>
                <Writing/>
             </div>
         </div>
+      }
         <div className={classes.MediaCard}>
             <MediaCard 
               image = {require('../risk.png')}
@@ -58,7 +67,7 @@ const Home = ({ events, setEvents, createEvents }) => {
 
             <MediaCard
               image={require('../taking.png')}
-              choice="I’m taking Prep or PEP to prevent HIV"
+              choice="I’m taking PREP or PEP to prevent HIV"
               description="You’re taking a prevention treatment such like PEP or PREP. Timing is crucial in order to stop HIV!! Use our tool to plan and manage your treatment."
               events={events}
               setEvents={setEvents}

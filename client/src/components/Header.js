@@ -1,30 +1,55 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './Header.css'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import json2mq from 'json2mq';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const Header = () => {
     const logo = require('../logo-docto.png')
     const hivWhite = require('../vih-white.png')
+    const mobile = useMediaQuery(
+      json2mq({
+        maxWidth: 600,
+      }),
+    );
   return (
     <nav style={styles.navbar}>
-        <img style={styles.logo} src={logo} alt="logo" />
+        {!mobile && <img style={styles.logo} src={logo} alt="logo" />}
       <ul style={styles.header}>
           
         <li>
-                <NavLink style={{padding: '10px', marginRight: '20px' }} to="/">
-                    Home
-                </NavLink>
-                <NavLink to="/agenda">
-                    My Pills-Box
-                </NavLink>
+              {mobile 
+                ?
+                  <>
+                    <MenuIcon />
+                  </>
+                :
+                  <>
+                    <NavLink style={{padding: '10px', marginRight: '20px' }} to="/">
+                        Home
+                    </NavLink>
+                    <NavLink to="/agenda">
+                        My Pills-Box
+                    </NavLink>
+                  </>
+              }
         </li>
         <li>
+          {mobile
+            ?
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <img style={styles.logo} src={logo} alt="logo" />
+                <img style={{height: '25px'}} src={hivWhite} alt="logo" />
+              </div>
+            :
             <div style={styles.careContainer}>
                 <img style={{height: '25px'}} src={hivWhite} alt="logo" />
                 <NavLink style={{padding: '10px'}} exact to="/">
                     HIV care
                 </NavLink>
-            </div>    
+            </div>  
+          }
         </li>
       </ul>
     </nav>
