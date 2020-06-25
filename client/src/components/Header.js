@@ -20,7 +20,7 @@ const Header = () => {
         </li>
         <li>
             <div style={styles.careContainer}>
-                <img style={{height: '40px'}} src={hivWhite} alt="logo" />
+                <img style={{height: '25px'}} src={hivWhite} alt="logo" />
                 <NavLink style={{padding: '10px'}} exact to="/">
                     HIV care
                 </NavLink>
@@ -49,11 +49,14 @@ const styles = {
     },
     navbar: {
         display: 'flex',
-        height: '70px',
+        height: '50px',
         backgroundColor: 'rgb(65, 149, 216)',
     },
     logo: {
-        height: '70px',
+        width: '100px',
+        height: '60px',
+        marginLeft: '20px',
+        marginTop: '-5px',
     }
   }
 
