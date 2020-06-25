@@ -38,14 +38,12 @@ const Home = ({ events, setEvents, createEvents }) => {
     const classes = useStyles();
     return (
     <div>
-      {!mobile &&
         <div className={classes.MediaGeneral}>
-            <img src={require('../hiv_logo.png')} width="95px" style={{marginRight: '30px'}} ></img>
+            <img src={require('../hiv_logo.png')} width="75px" style={mobile ? { margin: '25px' } : { marginRight: '30px' }} ></img>
             <div className={classes.MediaWritte}>
                <Writing/>
             </div>
         </div>
-      }
         <div className={classes.MediaCard}>
             <MediaCard 
               image = {require('../risk.png')}
