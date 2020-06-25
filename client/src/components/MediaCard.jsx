@@ -33,7 +33,7 @@ const MediaCard = ({ choice, image, description, events, setEvents, createEvents
         <CardMedia
           className={classes.media}
           image={image}
-          choice="Contemplative Reptile"
+          choice={choice}
         />
         <CardContent>
         <ModalTreatment 

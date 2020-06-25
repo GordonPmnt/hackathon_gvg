@@ -32,7 +32,7 @@ const Home = ({ events, setEvents, createEvents }) => {
     return (
     <div>
         <div className={classes.MediaGeneral}>
-            <img src={require('../hiv_logo.png')} width="95px"></img>
+            <img src={require('../hiv_logo.png')} width="95px" style={{marginRight: '30px'}} ></img>
             <div className={classes.MediaWritte}>
                <Writing/>
             </div>
