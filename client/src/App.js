@@ -9,16 +9,18 @@ const App = () => {
   const [events, setEvents] = useState([])
   const createEvents = (treatment, firstDate) => {
     let newEvents = events
-    let dateTime = firstDate
+    let dateTime = new Date(firstDate)
     for(let i=1; i<=30; i++) {
       newEvents = [
         ...newEvents,
         { 
           id: i,
-          treatment,
-          dateTime,
+          title: treatment,
+          start: dateTime.setTime(dateTime),
+          end: dateTime.setTime(dateTime),
         }
       ]
+      dateTime.setDate(dateTime.getDate() + 1);
     };
     setEvents(newEvents);
   }
