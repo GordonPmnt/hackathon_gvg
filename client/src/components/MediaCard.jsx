@@ -8,11 +8,13 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import json2mq from 'json2mq';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 235,
-    margin: '5% 30px 0 30px',
+    margin: '5% 2.5% 0 2.5%',
     transition: "0.3s cubic-bezier(.47,1.64,.41,.8)",
             "&:hover": {
             transform: "scale(1.04)",
@@ -26,6 +28,11 @@ const useStyles = makeStyles({
 
 const MediaCard = ({ choice, image, description, events, setEvents, createEvents }) => {
   const classes = useStyles();
+  const mobile = useMediaQuery(
+    json2mq({
+      maxWidth: 600,
+    }),
+  );
 
   return (
     <Card className={classes.root}>
