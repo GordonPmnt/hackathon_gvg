@@ -11,7 +11,7 @@ const Header = () => {
       <ul style={styles.header}>
           
         <li>
-                <NavLink style={{padding: '10px'}} to="/">
+                <NavLink style={{padding: '10px', marginRight: '20px' }} to="/">
                     Accueil
                 </NavLink>
                 <NavLink to="/agenda">
