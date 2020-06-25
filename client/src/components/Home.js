@@ -9,10 +9,12 @@ const useStyles = makeStyles(() => ({
         justifyContent: "center",
         alignItems: "center",
 
-       marginLeft: "22%",
-       marginRight: "22%",
+       marginLeft: "21%",
+       marginRight: "21%",
+       marginTop: "3%",
     },
     MediaWritte:{
+        fontSize: "20px",
         textAlign: "center",
         color: "rgb(65, 149, 216)",
     },
@@ -20,7 +22,8 @@ const useStyles = makeStyles(() => ({
     MediaCard: {
         display:'flex', 
         flexWrap: 'wrap', 
-        justifyContent: 'center', 
+        justifyContent: 'center',
+        marginBottom: "10%",
     }
   }));
 
@@ -29,7 +32,7 @@ const Home = ({ events, setEvents, createEvents }) => {
     return (
     <div>
         <div className={classes.MediaGeneral}>
-            <img src={require('../hiv_logo.png')} width="100px"></img>
+            <img src={require('../hiv_logo.png')} width="95px"></img>
             <div className={classes.MediaWritte}>
                <Writing/>
             </div>
