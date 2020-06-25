@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    
   },
   paper: {
     backgroundColor: theme.palette.background.paper,
@@ -35,6 +36,8 @@ const useStyles = makeStyles((theme) => ({
     height: '50px'
   }
 }));
+
+const prep = require('../prep.png')
 
 const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
   const classes = useStyles();
@@ -76,10 +79,13 @@ const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
       >
         <Fade in={openFirst}>
           <div className={classes.paper}>
-            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-title">Record the treatment</h2>
-            <p id="transition-modal-description">Choose your treatment</p>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+              <img style={{height: '50px', marginRight: '15px'}} src={prep} alt="logo" />
+              <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-title"> Record the treatment</h2>
+            </div>
+            <p style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-description">Choose your treatment</p>
             <Select
-                style={{display: 'flex', justifyContent: 'center'}}
+                style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px', borderRadius: '5px'}}
                 native
                 value={treatment}
                 onChange={handleChange}
@@ -90,7 +96,7 @@ const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
             >
               <option aria-label="None" value="" />
               <option value={"PEP"}>PEP</option>
-              <option value={"PREP"}>PREP</option>
+              <option value={"PrEP"}>PrEP</option>
             </Select>
             <ModalPEP
                 setOpenFirst={setOpenFirst}

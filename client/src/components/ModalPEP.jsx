@@ -10,6 +10,8 @@ import colors from '../colors';
 import { useState } from 'react';
 
 const Validate = styled.div`
+    margin-top: 20px;
+    margin-bottom: 20px;
     left: 50px;
     color: white;
     font-size: 1rem;
@@ -19,7 +21,7 @@ const Validate = styled.div`
     background: ${colors.youtubeRed};
     cursor: pointer;
 `
-
+const prep = require('../prep.png')
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -79,10 +81,14 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
         }}
       >
         <Fade in={open}>
-          <div className={classes.paper}>
-            <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
-            <p id="modal-pep-description">The first pill is planed on</p>
+          <div style={{padding: '0px 66px 24px', alignItems: 'center'}} className={classes.paper}>
+            <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '50px'}}>
+              <img style={{height: '50px', marginRight: '15px'}} src={prep} alt="logo" />
+              <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
+            </div>
+            <p style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-description">The first pill is planed on</p>
             <TextField
+                style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px', borderRadius: '5px'}}
                 id="datetime-local"
                 label="Pick a date and a time"
                 type="datetime-local"
