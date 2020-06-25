@@ -28,16 +28,23 @@ const App = () => {
   const updateEvents = (id, takenDate) => {
     let dateTime = new Date(takenDate)
     let newEvents = events.map(event => {
-      if(event.id <= id) {
+      if(event.id < id) {
         return event;
       }
+      if(event.id === id) {
+        return {
+          ...event,
+          start: takenDate,
+          end: takenDate,
+        }
+      }
       if(event.id > id) {
+        dateTime.setDate(dateTime.getDate() + 1)
         let shiftDate = {
           ...event,
           start: dateTime.setTime(dateTime),
           end: dateTime.setTime(dateTime),
         };
-        dateTime.setDate(dateTime.getDate() + 1)
         return shiftDate;
       }
     })
