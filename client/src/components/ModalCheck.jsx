@@ -83,7 +83,7 @@ const ModalCheck = ({ updateEvents, id, start, displayedDate, title, setChecked 
             <TextField
                 style={{display: 'flex', justifyContent: 'center', backgroundColor: 'rgb(233,240,248)', marginBottom: '8px'}}
                 id="datetime-local"
-                label="Pick a date a time"
+                label="I took my pill on..."
                 type="datetime-local"
                 value={takenDate}
                 InputLabelProps={{

@@ -83,7 +83,7 @@ const ModalPEP = ({ setOpenFirst, events, setEvents, treatment, createEvents }) 
         <Fade in={open}>
           <div style={{padding: '0px 66px 24px', alignItems: 'center'}} className={classes.paper}>
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '50px'}}>
-              <img style={{height: '50px', marginRight: '15px'}} src={prep} alt="logo" />
+              <img style={{height: '50px', marginRight: '15px', borderRadius: '100%'}} src={prep} alt="logo" />
               <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-title">{treatment}</h2>
             </div>
             <p style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="modal-pep-description">The first pill is planed on</p>

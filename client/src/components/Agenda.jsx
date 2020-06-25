@@ -51,7 +51,7 @@ const Title = ({ events }) => {
     const logo = require('../pillbox.png')
     return (
         <TitleContainer>
-            <Header>MY PILLS-BOX {`(${events.length} PILLS)`} </Header>
+            <Header>MY PILLS-BOX (<span style={{color: colors.youtubeRed}}>{events.length}</span> PILLS)</Header>
             <Logo src={logo} alt="logo" />
         </TitleContainer>
     )

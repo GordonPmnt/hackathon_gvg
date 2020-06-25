@@ -80,6 +80,8 @@ const Ticket = ({ id, title, range, start, avatar, updateEvents }) => {
                         id={id}
                         start={start}
                         setChecked={setChecked}
+                        displayedDate={displayedDate}
+                        title={title}
                     />
                 </Button>
             </Container>

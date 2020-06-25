@@ -80,7 +80,7 @@ const ModalTreatment = ({ choice, events, setEvents, createEvents }) => {
         <Fade in={openFirst}>
           <div className={classes.paper}>
             <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-              <img style={{height: '50px', marginRight: '15px'}} src={prep} alt="logo" />
+              <img style={{height: '50px', marginRight: '15px', borderRadius: '100%'}} src={prep} alt="logo" />
               <h2 style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-title"> Record the treatment</h2>
             </div>
             <p style={{display: 'flex', justifyContent: 'center', color: '#5694D3'}} id="transition-modal-description">Choose your treatment</p>
