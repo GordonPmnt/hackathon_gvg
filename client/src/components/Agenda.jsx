@@ -25,30 +25,33 @@ const PillsContainer = styled.div`
 
 const TitleContainer = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 `
 
 const Logo = styled.img`
-    margin-right: 20px;
-    width: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
 `
 
 const Header = styled.h2`
     color: ${colors.textBlue};
+    margin: 0;
+    text-align: center;
 `
 
 const ToDoList = styled.div`
     overflow: scroll;
-    max-height: 70vh;
+    max-height: 52.5vh;
 `
 
 
-const Title = () => {
-    const logo = require('../hiv_logo.png')
+const Title = ({ events }) => {
+    const logo = require('../pillbox.png')
     return (
         <TitleContainer>
+            <Header>MY PILLS-BOX {`(${events.length} PILLS)`} </Header>
             <Logo src={logo} alt="logo" />
-            <Header>MY NEXT PILLS</Header>
         </TitleContainer>
     )
 }
@@ -65,7 +68,7 @@ const Agenda = ({ events, setEvents }) => {
     return(
         <Container>
             <PillsContainer>
-                <Title />
+                <Title events={events} />
                 <ToDoList>
                     {events.map(event =>                 
                         <Ticket
