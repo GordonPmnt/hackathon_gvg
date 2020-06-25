@@ -5,6 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 import colors from '../colors';
 
 const Validate = styled.div`
@@ -75,6 +76,15 @@ const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
           <div className={classes.paper}>
             <h2 id="modal-pep-title">Transition modal</h2>
             <p id="modal-pep-description">react-transition-group animates me.</p>
+            <TextField
+                id="datetime-local"
+                label="Pick a date a time"
+                type="datetime-local"
+                defaultValue="2020-06-26T10:30"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+            />
             <Validate
                 onClick={handleSubmit}
             >
