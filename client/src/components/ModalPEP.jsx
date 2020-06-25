@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ModalPEP = ({ setOpenFirst }) => {
+const ModalPEP = ({ setOpenFirst, events, setEvents }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 

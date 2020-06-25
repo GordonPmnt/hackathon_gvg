@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ModalTreatment = ({ choice }) => {
+const ModalTreatment = ({ choice, events, setEvents }) => {
   const classes = useStyles();
   const [openFirst, setOpenFirst] = React.useState(false);
 
@@ -61,6 +61,8 @@ const ModalTreatment = ({ choice }) => {
             <p id="transition-modal-description">react-transition-group animates me.</p>
             <ModalPEP
                 setOpenFirst={setOpenFirst}
+                events={events}
+                setEvents={setEvents}
             />
           </div>
         </Fade>

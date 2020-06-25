@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-const MediaCard = ({ choice, image, description }) => {
+const MediaCard = ({ choice, image, description, events, setEvents }) => {
   const classes = useStyles();
 
   return (
@@ -32,9 +32,11 @@ const MediaCard = ({ choice, image, description }) => {
         <CardContent>
         <ModalTreatment 
           choice={choice}
+          events={events}
+          setEvents={setEvents}
         />
           <Typography variant="body2" color="textSecondary" component="p">
-          {description}
+            {description}
           </Typography>
         </CardContent>
       </CardActionArea>
