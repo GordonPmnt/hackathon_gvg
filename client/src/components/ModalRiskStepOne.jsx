@@ -69,7 +69,7 @@ const ModalRiskStepOne = () => {
         onClick={handleOpen}
         className={classes.button}
     >
-        I've been exposed to HIV'
+        I've been exposed to risk
       </button>
       <Modal
         aria-labelledby="modal-riskOne-title"
