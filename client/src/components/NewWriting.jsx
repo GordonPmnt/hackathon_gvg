@@ -33,7 +33,7 @@ const Writing = ({ text }) => {
     <>
     {mobile 
       ?
-        <p><span className={classes.spanRed}> Stop AIDS together</span></p>
+        <p><span className={classes.spanRed}>Keep calm and get tested.</span></p>
       :
         <p>Doctolib is concerned by HIV. If you need a specialist, doctolib can help you to <span className={classes.spanBlue}>find the adequate person in your area</span><br/><br/>
         Moreover, we accompany you and help to efficiently prevent HIV contamination or to handle your treatments.<span className={classes.spanRed}> Stop AIDS together</span></p>
