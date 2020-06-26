@@ -43,7 +43,7 @@ const ModalRiskStepTwo = ({ riskDate, handleCloseFirst }) => {
 
   let now = new Date();
   let risk = new Date(riskDate)
-  let timing =  Math.floor(Math.abs(now - risk) / 36e5);
+  let timing = 72 - Math.floor(Math.abs(now - risk) / 36e5);
 
   const handleOpen = () => {
     setOpen(true);
