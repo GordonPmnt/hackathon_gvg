@@ -1,14 +1,31 @@
 {
-  "name": "hackathon_gvg",
+  "name": "ilha",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fullcalendar/core": "^4.4.2",
+    "@fullcalendar/daygrid": "^4.4.2",
+    "@fullcalendar/react": "^4.4.2",
+    "@fullcalendar/timegrid": "^4.4.2",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.19.2",
+    "json2mq": "^0.2.0",
+    "loadable-components": "^2.2.3",
+    "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "simple-peer": "^9.6.2",
+    "socketio": "^1.0.0",
+    "styled-components": "^5.1.1",
+    "uuid": "^8.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,6 +33,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:8000",
   "eslintConfig": {
     "extends": "react-app"
   },
